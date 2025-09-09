@@ -1,10 +1,13 @@
+get_property(conversion_libs GLOBAL PROPERTY MLIR_CONVERSION_LIBS)
+get_property(dialect_libs GLOBAL PROPERTY MLIR_DIALECT_LIBS)
+
 set(LIBS
+    ${conversion_libs}
+    ${dialect_libs}
     MLIRArithDialect
     MLIROptLib
-    MLIRRegisterAllDialects
-    MLIRRegisterAllPasses
     MLIRListDialect
-    MLIRListTransforms
+    MLIRListToStandard
   )
 add_llvm_executable(listproject-opt listproject-opt.cpp)
 
