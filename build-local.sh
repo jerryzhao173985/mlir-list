@@ -58,26 +58,17 @@ cmake .. \
 # Build
 echo -e "${GREEN}Building listproject-opt...${NC}"
 ninja listproject-opt
-
-# Check if build was successful
-if [ $? -eq 0 ]; then
-    echo -e "${GREEN}✓ Build successful!${NC}"
-else
-    echo -e "${RED}✗ Build failed!${NC}"
-    exit 1
-fi
+echo -e "${GREEN}✓ Build successful!${NC}"
 
 # Run tests
 echo -e "${GREEN}Running tests...${NC}"
-ninja check-listproject
-
-# Check if tests passed
-if [ $? -eq 0 ]; then
-    echo -e "${GREEN}✓ All tests passed!${NC}"
-else
+# Use || true to prevent script exit on test failures during exercises
+ninja check-listproject || {
     echo -e "${RED}✗ Some tests failed!${NC}"
     # Don't exit with error for failing tests during exercises
-fi
+    true
+}
+echo -e "${GREEN}✓ Tests completed!${NC}"
 
 cd ..
 

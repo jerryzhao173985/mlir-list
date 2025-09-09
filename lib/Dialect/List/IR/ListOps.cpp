@@ -96,3 +96,4 @@ ParseResult MapOp::parse(OpAsmParser &parser, OperationState &result) {
 
   return success();
 }
+
