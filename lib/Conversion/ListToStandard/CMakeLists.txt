@@ -1,11 +1,8 @@
-add_mlir_conversion_library(MLIRListToStandard
+add_mlir_library(MLIRListToStandard
   ListToStandard.cpp
 
   ADDITIONAL_HEADER_DIRS
   ${PROJECT_SOURCE_DIR}/include/ListProject
-
-  DEPENDS
-  ListConversionPassIncGen
 
   LINK_COMPONENTS
   Core
